@@ -6,6 +6,29 @@ import connectDB from "./db/index.js";
 //const app=express()
 //function connectDB(){}
   
+
+connectDB()
+.then(()=>{
+    app.listen(process.env.port||3020,()=>{
+           console.log(`succesfully connected:${process.env.port}`);    
+    })
+    app.on(`errr`,(error)=>{
+      console.log("errr:",error);
+    })
+    throw error
+  })
+  .catch((error)=>{
+         console.log("error on this:",error);
+  })
+
+
+
+
+
+
+
+
+
 /*(async()=>{
     try{
 
@@ -26,4 +49,4 @@ import connectDB from "./db/index.js";
 })()*/
 
 //mongoose.connect()
-connectDB()
+//connectDB()
